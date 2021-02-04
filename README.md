@@ -53,7 +53,7 @@ I created a copy of the original copy.in file and amended it to just target the 
 
 The ```MigrateIngresToSql``` tool will read the copy.in file, generate an array of TableDefinition types which contain the table name, the fields name and type and the name of the psa file containg he exported data.
 
-Each of the TableDefinions is iterated through and the psa file contents will be read and a corresponding [```System.Data.Datatable```](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable?view=netframework-4.7.2) will be created, mapping as closely as possible the source and destination database types, but fall back to ```string``` (which will translate to ```nvarchar``` in MSSQL Server) if a corresponding type cannot be found.
+Each of the TableDefinions is iterated through and the associated ```<Table>.psa``` file contents will be read and a corresponding [```System.Data.Datatable```](https://docs.microsoft.com/en-us/dotnet/api/system.data.datatable?view=netframework-4.7.2) will be created, mapping as closely as possible the source and destination database types, but fall back to ```string``` (which will translate to ```nvarchar``` in MSSQL Server) if a corresponding type cannot be found.
 
 By default, no tables will be created or data will be saved to the destination database unless you set the following to true in ```Program.cs```, it will just go through the process of parsing the expored files. Setting it to true will create the destination tables and import the data:
 
